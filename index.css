@@ -1,0 +1,25 @@
+table.calculator tbody > tr > td {
+  padding: 60px 80px;
+  border: 2px solid #000;
+  cursor: pointer;
+  background: #f6f6f6;
+  font-size: 24px;
+  font-weight: bold;
+}
+table.calculator tbody > tr:nth-child(4) > td:not(:nth-child(2)) {
+  background: #e6e6e6;
+  font-weight: regular;
+}
+
+table.calculator tbody > tr > td:hover {
+  background: #d6d6d6;
+}
+
+table.calculator tbody > tr > td:nth-child(4) {
+  background: #e6e6e6;
+  font-weight: regular;
+}
+
+table.calculator tbody > tr > td:nth-child(4):hover {
+  background: #0077d7;
+}
