@@ -20,11 +20,16 @@ let currentCodeSubmit = () => 'noop';
 const nextCodeQuestions = () => {
   codeQuestion = codeQuestions[++currentQuestionIndex];
   if (!codeQuestion) return;
-  const hasNext = currentQuestionIndex < codeQuestions.length - 1;
-  if (hasNext)
-    return (codeInfo.innerHTML = 'You have another set of questions to answer');
+  console.log(
+    currentQuestionIndex,
+    codeQuestions.length,
+    currentQuestionIndex <= codeQuestions.length - 1
+  );
+  const hasNext = currentQuestionIndex <= codeQuestions.length - 1;
 
-  codeInfo.innerHTML = 'You have finished all the questions';
+  codeInfo.innerHTML = hasNext
+    ? 'You have another set of questions to answer'
+    : 'You have finished all the questions';
 
   if (!codeQuestion) return;
   createCodeQuiz(codeQuestion.codes);
