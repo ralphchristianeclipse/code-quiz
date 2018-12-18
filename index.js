@@ -20,11 +20,6 @@ let currentCodeSubmit = () => 'noop';
 const nextCodeQuestions = () => {
   codeQuestion = codeQuestions[++currentQuestionIndex];
   if (!codeQuestion) return;
-  console.log(
-    currentQuestionIndex,
-    codeQuestions.length,
-    currentQuestionIndex <= codeQuestions.length - 1
-  );
   const hasNext = currentQuestionIndex <= codeQuestions.length - 1;
 
   codeInfo.innerHTML = hasNext
@@ -43,12 +38,15 @@ const createCodeQuiz = codes => {
   let currentCodeIndex = 0;
   let currentCode = codes[currentCodeIndex];
   codeImage.src = `images/${currentCode.image}`;
+  currentCode.answers = currentCode.answers.map(c => c.replace(/\s/gm, ''));
   const checkCode = code => {
-    return codeInput.value === code;
+    console.log(editorModel.getValue());
+    return code.includes(editorModel.getValue().replace(/\s/gm, ''));
   };
 
   const nextCode = () => {
     currentCode = codes[++currentCodeIndex];
+    currentCode.answers = currentCode.answers.map(c => c.replace(/\s/gm, ''));
     codeImage.src = `images/${currentCode.image}`;
     codeInput.value = '';
     codeInput.focus();
@@ -59,7 +57,7 @@ const createCodeQuiz = codes => {
       codeInfo.innerHTML = 'You have finished the quiz';
       return nextCodeQuestions();
     }
-    const isValid = checkCode(currentCode.code);
+    const isValid = checkCode(currentCode.answers);
     if (!isValid) return (codeInfo.innerHTML = `Code is not valid`);
     codeInfo.innerHTML = 'Code is valid';
     nextCode();

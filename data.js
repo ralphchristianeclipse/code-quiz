@@ -15,23 +15,23 @@
 const tw = {
   codes: [
     {
-      code: 'a',
+      answers: ['tw.local.test == "a" || tw.local.test == "b"'],
       image: 'a.png'
     },
     {
-      code: 'b',
+      answers: ['b'],
       image: 'b.png'
     },
     {
-      code: 'c',
+      code: ['c'],
       image: 'ca.png'
     },
     {
-      code: 'd',
+      answers: ['d'],
       image: 'd.png'
     },
     {
-      code: 'e',
+      answers: ['e'],
       image: 'e.png'
     }
   ]
@@ -43,23 +43,23 @@ const codeQuestions = [
   {
     codes: [
       {
-        code: 'f',
+        answers: ['f'],
         image: 'a.png'
       },
       {
-        code: 'g',
+        answers: ['g'],
         image: 'b.png'
       },
       {
-        code: 'h',
+        answers: ['h'],
         image: 'ca.png'
       },
       {
-        code: 'i',
+        answers: ['i'],
         image: 'd.png'
       },
       {
-        code: 'j',
+        answers: ['j'],
         image: 'e.png'
       }
     ]
